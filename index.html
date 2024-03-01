@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+  <!---
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Honk&family=Jacquarda+Bastarda+9&family=Poppins:wght@100;200;300;400;500;600;700&family=Protest+Riot&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
+
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+
+
+
+<body>
+
+  
+  <div id="main" style="display:none">
+    <div id="game_text"></div>
+    <div id="game_img"></div>
+    <button id="but_a" onclick="playAudio('sounds/button.mp3')">A</button>
+    <button id="but_b" onclick="playAudio('sounds/button.mp3')">B</button>
+    
+  </div>
+
+ 
+
+  <div id="splash"><br>Before the game begins pick a sound, out of the options, that will be your background music:<br></div>
+  
+  <div id="splashy" style="display: none;"><br>The last memory you had was a peaceful car ride with your family on a forest path. The music was
+    playing, and you guys were having a great time. The next thing you know, the car rolls over and lands in the forest.<br><img src="imgs/snailloading.gif" style="width: 600px;"></div>
+    <div id="music_buttons"> 
+      <button id="music_button" onclick="playBackAudio('sounds/bellaciao.mp3')">Suprise!!!</button>
+      <button id="music_button" onclick="playBackAudio('sounds/minecraftbackground.mp3')">Minecraft</button>
+      <button id="music_button" onclick="playBackAudio('sounds/rainyforest.mp3')">Rainy Forest</button>
+      <button id="music_button" onclick="playBackAudio('sounds/NightForest.mp3')">Night Forest</button>
+      <button id="music_button" onclick="playBackAudio('sounds/carsounds.mp3')">Suprise!!!</button>
+    </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

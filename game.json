@@ -1,0 +1,399 @@
+{
+    "start_state" : "start",
+
+    "states" : {
+
+        "start": {
+            "text" : "Minutes later, you wake to the sound of animals near by. The car is turned upside down, and your family members seem to be unconscious but breathing.<br>What do you do?<br>A = Look for help B = Stay with your family",
+            "image_change" : "<img src=\"imgs/carrolled.png\">",
+            "next_state" : [ 
+                               {
+                                    "state_name" : "look_for_help",
+                                    "key_input"  : "A"
+                                },
+                                {
+                                    "state_name" : "stay_with_fam",
+                                    "key_input"  :"B"
+                                }
+                            ]
+        },
+       
+      
+        "look_for_help" : {
+          "text" : "You decided to leave your family in order to look for help. You walk out into the woods, and you find a cabin. What is your next move?<br>A = Go inside B = Keep walking",
+          
+          "image_change" : "<img src=\"imgs/creepycabin.jpg\">",
+          "next_state" : [ 
+             {
+                  "state_name" : "go_inside",
+                  "key_input"  : "A"
+              },
+              {
+                  "state_name" : "keep_walkin",
+                  "key_input"  :"B"
+              }
+          ]
+        },
+
+
+      "stay_with_fam" : {
+        "text" : "You decided to stay with your family until they woke up. However, days go by and you stay there for a long time without help, and as a result of the lack of medical attention, everyone dies and you are left all alone. What is your next move?<br>A = Search for help to survive B = Stay there traumatically helpless",
+        "play_sound" : "sounds/ripsound.mp3",
+        "image_change" : "<img src=\"imgs/rip.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "search_for_help_to_survive",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "stay_traumatically_helpless",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "go_inside" : {
+        "text" : "You enter the cabin and find some food rations and an old radio. What is your next move?<br>A = Try to fix the radio B = Take the food and keep looking",
+        "image_change" : "<img src=\"imgs/questionmark.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : ["try_fixing_radio_sucess", "try_fixing_radio_fail"],
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "take_food_keep_looking",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "keep_walkin" : {
+        "text" : "You decide to ignore the cabin, and you keep wondering. While walking, you reach a fork in the path. What is your next move?<br>A = Go left B = Go right",
+        "image_change" : "<img src=\"imgs/forkinpath.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "go_left",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "go_right",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "search_for_help_to_survive" : {
+        "text" : "You decided that you would at least have to survive instead of waiting for the same fate to take you. You need to find some food and water to survive. What do you prioritize?<br>A = Food B = Water",
+        "image_change" : "<img src=\"imgs/foodorwater.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "food",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "water",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "stay_traumatically_helpless" : {
+        "text" : "You decided to stay with your family and spend your last moments with them. Unfortunately, you die because your nervous system collapsed from all the truama. As sad as this death, you got to go with your loved ones. May you rest in peace now.<br>A = Restart Game B = End Game",
+        "play_sound" : "sounds/ripsound.mp3",
+        "image_change" : "<img src=\"imgs/heavensdoor.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "try_fixing_radio_sucess" : {
+        "text" : "You decided to try to fix the radio. You were successful and were able to send out a distress signal. What is your next move?<br>A = Go back and wait for help B = Keep searching around",
+        "play_sound" : "sounds/yay.mp3",
+        "image_change" : "<img src=\"imgs/radio.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "go_wait_for_help",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "keep_searching",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "try_fixing_radio_fail" : {
+        "text" : "You decided to try to fix the radio. However, you failed and caused a short circute that started a fire that burned down the whole forest. Now that you and your whole family are dead, may you all rest in peace.<br>A = Restart Game B = End Game",
+        "play_sound" : "sounds/fire.mp3",
+        "image_change" : "<img src=\"imgs/fire.gif\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+      
+      "take_food_keep_looking" : {
+        "text" : "You decided to take the food rations present, and you kept your search going. However, the scent of the food drew a grizzly bear from hibernation. What is your next move?<br>A = Lie down B = Run away",
+        "play_sound" : "sounds/gbearsound.mp3",
+        "image_change" : "<img src=\"imgs/gbear.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "lie_down_grizzly",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "run_away_grizzly",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "go_left" : {
+        "text" : "You decided to take the left path, and you found some hikers who were able to rescue you and your family. Congratulations! You and your family survived this tragic experience.<br>A = Restart Game B = End Game",
+        "play_sound" : "sounds/winsf.mp3",
+        "image_change" : "<img src=\"imgs/help.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+
+      "go_right" : {
+        "text" : "You decide to take the right, and unfortunately, you walk into a black bear's natural habitat, and the bear spots you. What is your next move?<br>A = Lie down B = Attack the bear",
+        "play_sound" : "sounds/bbearsound.mp3",
+        "image_change" : "<img src=\"imgs/bbear.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "lie_down_black",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : ["attack_black_bear_success", "attack_black_bear_fail"],
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "food" : {
+        "text" : "You decided that food was more important, and you died from dehydration. You tried your best; may you rest in peace.<br>A = Restart Game B = End Game",
+        "play_sound" : "sounds/ripsound.mp3",
+        "image_change" : "<img src=\"imgs/rip.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+
+      "water" : {
+        "text" : "You decided to look for water, which was the correct choice. You found a small river near by, and lucky for you, you found some teenagers on a trip, and they helped rescue you. You made it, and now your reason to live is to live your life for yourself and your family. You are truly a wonderful human being.<br>A = Restart game B = End game",
+        "play_sound" : "sounds/yay.mp3",
+        "image_change" : "<img src=\"imgs/help.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      
+
+      "go_wait_for_help" : {
+        "text" : "You decided to go back to your family and wait for help. After a couple of hours, a rescue outreach party shows up and rescues you and your whole family. You all survive, congratulations!<br>A = Restart game B = End game",
+        "play_sound" : "sounds/yay.mp3",
+        "image_change" : "<img src=\"imgs/youwin.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "keep_searching" : {
+        "text" : "You decided to keep searching, and unfortunately, you stumbled upon a horents nest, and you got stinged to death. However, your family was rescued thanks to your radio communication error. May you rest in peace.<br>A = Restart game B = End game",
+        "play_sound" : "sounds/ripsound.mp3",
+        "image_change" : "<img src=\"imgs/hornets.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "lie_down_grizzly" : {
+        "text" : "You decided to lie down, and the grizzly bear ignored you since you were not a threat. You managed to survive; what is your next move?<br>A = Go back to your family B = Keep searching",
+        "play_sound" : "sounds/yay.mp3",
+        "image_change" : "<img src=\"imgs/phew.gif\">",
+        "next_state" : [ 
+           {
+                "state_name" : "go_back_to_family",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "keep_your_search",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "run_away_grizzly" : {
+        "text" : "You decided to run away, and the grizzly bear saw you as a threat and chased you down and killed you. Since you didn't find help, your family died as well. May you all rest in peace.<br>A = Restart game B = End game",
+        "play_sound" : "sounds/ripsound.mp3",
+        "image_change" : "<img src=\"imgs/gbearkill.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "lie_down_black" : {
+        "text" : "You decided to lie down and play dead, but the black bear considers you PREY and kills you. May you rest in peace.<br>A = Restart game B = End game",
+        "play_sound" : "sounds/ripsound.mp3",
+        "image_change" : "<img src=\"imgs/bbearkill.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "attack_black_bear_fail" : {
+        "text" : "You decide to fight back, as it is the only correct option when facing a black bear. However, you still died due to the bear's aggression. May you rest in peace.<br>A = Restart game B = End game",
+        "play_sound" : "sounds/ripsound.mp3",
+        "image_change" : "<img src=\"imgs/bbearkill.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "attack_black_bear_success" : {
+        "text" : "You decide to fight back, as it is the only correct option and fortunately you won and the black bear backed off! What is your next move?<br>A = Go back and take the left path B = Continue in your current path",
+        "play_sound" : "sounds/yay.mp3",
+        "image_change" : "<img src=\"imgs/youdidit.gif\">",
+        "next_state" : [ 
+           {
+                "state_name" : "go_left",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "go_right_after_beating_black_bear",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "go_right_after_beating_black_bear" : {
+        "text" : "You decide in your poor judgment to contiune in the same path in which you fought the bear thinking the bear is gone. However, he was still there waiting and this time he tore you to shreds. Rest in peace.<br>A = Restart game B = End game",
+        "play_sound" : "sounds/idiot.mp3",
+        "image_change" : "<img src=\"imgs/cry.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "go_back_to_family" : {
+        "text" : "You decided to go back to your family with the hopes and prayers that they are okay. Thankfully your prayers were answered because some locals in the area saw the crash and helped them. You all surived great job!<br>A = Restart game B = End game",
+        "play_sound" : "sounds/yay.mp3",
+        "image_change" : "<img src=\"imgs/youwin.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+
+      "keep_your_search" : {
+        "text" : "You decided to keep your search and unfoturntly slip and fall off a cliff. However, some locals in the area saw the crash and helped your family. May you rest in peace!<br>A = Restart game B = End game",
+        "play_sound" : "sounds/ripsound.mp3",
+        "image_change" : "<img src=\"imgs/rip.png\">",
+        "next_state" : [ 
+           {
+                "state_name" : "restart_game",
+                "key_input"  : "A"
+            },
+            {
+                "state_name" : "end_game",
+                "key_input"  :"B"
+            }
+        ]
+      },
+      
+        "restart_game" : {
+            "restart_cmd" : true 
+        },
+        "end_game" : {
+            "end_cmd" : true 
+        }
+    }
+}
